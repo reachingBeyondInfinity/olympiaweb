@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+
+
+@import "setup/typography";
+@import "setup/variables";
+@import "setup/mixins";
+@import "basics/bootstrap-overrides";
+@import "basics/base";
+@import "components/navbar";
+@import "components/masthead";
+@import "components/about";
+@import "components/services";
+@import "components/portfolio";

@@ -1,0 +1,52 @@
+
+
+// Small devices (landscape phones, 576px and up)
+$screen-xs-min: 576px;
+
+// Medium devices (tablets, 768px and up)
+$screen-md-min: 768px;
+
+// Large devices (desktops, 992px and up)
+$screen-lg-min: 992px;
+
+// Extra large devices (large desktops, 1200px and up)
+$screen-xlg-min: 1200px;
+
+$font-family-playfair: 'Playfair Display', serif;
+$font-family-montserrat: 'Montserrat', sans-serif;
+$font-family-raleway: 'Raleway', sans-serif;
+$font-family-kaushan: 'Kaushan Script', cursive;
+
+$font-weight-thin:          100;
+$font-weight-exlight:       200;
+$font-weight-light:         300;
+$font-weight-regular:       400;
+$font-weight-medium:        500;
+$font-weight-semibold:      600;
+$font-weight-bold:          700;
+$font-weight-exbold:        800;
+$font-weight-black:         900;
+
+// Mixins
+@mixin transition($property: all, $duration: 300ms, $animate: linear, $delay:0s){
+    transition: $property $duration $animate $delay; 
+}
+
+// Mixins
+@mixin transition-all() {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  @mixin background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  @mixin serif-font() {
+    font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  }
+  @mixin sans-serif-font() {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
