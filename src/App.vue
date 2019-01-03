@@ -3,8 +3,6 @@
     <Navbar/>
     <Header/>
     <About/>
-    <Services/>
-    <PhotoGallery/>
   </div>
 </template>
 

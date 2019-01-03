@@ -54,7 +54,7 @@ section {
   
   padding: 8rem 0;
 
-  .section-header {
+  .section-header-main {
     
     margin-top: 0;
 
@@ -89,6 +89,17 @@ section {
       text-align:right;
       margin-right:0;
       margin-bottom: 75px;
+    }
+
+    .section-header-dark {
+      
+      h3{
+        color: $colorTextSecondary;
+      }
+
+      h2{
+        color: $colorTextPrimary;
+      }
     }
   }
 
