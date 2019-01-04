@@ -1,13 +1,16 @@
-@import "~bootstrap/scss/bootstrap";
-
-
 
 
 @import "setup/typography";
 @import "setup/variables";
 @import "setup/mixins";
-@import "basics/bootstrap-overrides";
 @import "basics/base";
+
+
+
+@import "basics/custom_bootstrap";
+@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
+
 @import "components/navbar";
 @import "components/masthead";
 @import "components/about";

@@ -1,15 +1,13 @@
 import Vue from 'vue'
-import BootstrapVue from "bootstrap-vue"
 import App from './App.vue'
-import vueSmoothScroll from 'vue-smooth-scroll'
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
-import "bootstrap-vue/dist/bootstrap-vue.css"
+import BootstrapVue from "bootstrap-vue"
+import VueScrollTo from 'vue-scrollto';
+
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
-Vue.use(vueSmoothScroll)
+Vue.use(VueScrollTo)
 
 new Vue({
   render: h => h(App),

@@ -1,60 +1,43 @@
 <template>
-  <!-- Navigation -->
-  <nav
+  <b-navbar
     v-bind:class="{ 'navbar-shrink': isActive }"
     class="navbar navbar-expand-lg navbar-light fixed-top"
     id="mainNav"
     ref="mainNav"
     v-b-scrollspy
+    toggleable="md"
+    type="light"
   >
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#app" v-smooth-scroll>Olympia Alm</a>
-
-      <div class="navbar-toggler">
-        <div
-          ref="myId"
-          v-on:click="onNavClick"
-          v-bind:class="{ 'is-clicked': isClicked }"
-          class="header-menu-toggle"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          href="#0"
-        >
-          <span class="header-menu-icon"></span>
-        </div>
+    <b-navbar-toggle 
+      ref="mNavbarToggler"
+      class="navbar-toggler" target="nav_collapse"
+      >
+      <div
+        ref="mNavbarTogglerIcon"
+        v-on:click="toggleNavbarToggler"
+        v-bind:class="{ 'is-clicked': isClicked }"
+        class="header-menu-toggle"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        href="#0"
+      >
+        <span class="header-menu-icon"></span>
       </div>
+    </b-navbar-toggle>
 
-      <div ref ="myNavbar" 
-      :class="showCollapse ? 'hide' : null"
-      class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a 
-            v-on:click="onNavLinkClick"
-            class="nav-link js-scroll-trigger" href="#about" v-smooth-scroll>About</a>
-          </li>
-          <li class="nav-item">
-            <a 
-            v-on:click="onNavLinkClick"
-            class="nav-link js-scroll-trigger" href="#services" v-smooth-scroll>Services</a>
-          </li>
-          <li class="nav-item">
-            <a 
-            v-on:click="onNavLinkClick"
-            class="nav-link js-scroll-trigger" href="#portfolio" v-smooth-scroll>Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a 
-            v-on:click="onNavLinkClick"
-            class="nav-link js-scroll-trigger" href="#contact" v-smooth-scroll>Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+    <b-navbar-brand href="#app" v-on:click="onNavBrandClick" v-scroll-to="'#app'">Olympia Alm</b-navbar-brand>
+
+    <b-collapse is-nav id="nav_collapse" ref="mNavCollapse">
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item href="#about" v-on:click="toggleNavbarToggler" v-scroll-to="'#about'">About</b-nav-item>
+        <b-nav-item href="#services" v-on:click="toggleNavbarToggler" v-scroll-to="'#services'">Service</b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
-<script>
+  <script>
 export default {
   data: function() {
     return {
@@ -65,46 +48,41 @@ export default {
   },
 
   methods: {
+    // listen to scroll event, and change color of navbar depends on it
     handleScroll(event) {
-      if (window.scrollY > 300) {
-        this.isActive = true;
-      } else {
-        this.isActive = false;
-      }
-    },
-
-    onNavClick(event) {
-      
-      console.log(this.$refs.myNavbar);
-
-      event.preventDefault();
-
-      var isExpanded = this.$refs.myId.getAttribute("aria-expanded");
-      
-      if (isExpanded == null) {
-        this.isClicked = true;
-      } else {
-        if (isExpanded == "true") {
-          this.isClicked = false;
+      if(!this.$refs.mNavCollapse.show){
+        if (window.scrollY > 250) {
+          this.isActive = true;
         } else {
-          this.isClicked = true;
+          this.isActive = false;
         }
       }
     },
 
-    onNavLinkClick(event) {
-        this.showCollapse = !this.showCollapse;  
+    // on nav click animate navbar toggler
+    toggleNavbarToggler() { 
+      //event.preventDefault();
+      this.isClicked = !this.$refs.mNavCollapse.show;
+
+      if(window.scrollY<250) {
+        this.isActive = !this.isActive;
+      }
+    },
+
+    onNavBrandClick() {
+      this.$refs.mNavCollapse.show = false;
+      this.isClicked = false;
     }
   },
-  
+
   created() {
     window.addEventListener("scroll", this.handleScroll);
   },
 
   mounted() {
-    var a = this.$refs.myId;
-    console.log("element " + a);
-    console.log("attributes " + a.$attrs);
+    //var a = this.$refs.mNavbarToggler;
+    //console.log("element " + a);
+    //console.log("attributes " + a.$attrs);
 
     //console.log("on mounted " + this.$refs.myId.$attrs['aria-expanded']);
   },

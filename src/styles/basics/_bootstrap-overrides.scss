@@ -1,4 +1,8 @@
 // Bootstrap overrides for this template
+.bg-info {
+  color: $primary!important;
+}
+
 .text-primary {
   color: $primary !important;
 }
@@ -28,4 +32,8 @@
   &:focus {
     box-shadow: 0 0 0 0.2rem rgba(240, 95, 64,.5) !important;
   }
+}
+
+.navbar {
+  background-color: $primary;
 }

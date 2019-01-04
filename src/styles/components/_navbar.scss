@@ -1,8 +1,19 @@
 // Styling for the navbar
 #mainNav {
   border-bottom: 1px solid fade-out($gray-900, 0.9);
-  background-color: $white;
+  background-color: transparent;
   font-family: $font-family-montserrat;
+
+  transition: transform 500ms ease, background 500ms ease;
+  -webkit-transition: transform 500ms ease, background 500ms ease;
+
+  &.navbar-shrink {
+    border-bottom: 1px solid fade-out($gray-900, 0.9);
+    background-color: $white;
+    margin: 0;
+    transition: transform 500ms ease, background 500ms ease;
+    -webkit-transition: transform 500ms ease, background 500ms ease;
+  }
 
   //@include transition-all;
   .navbar-brand {
@@ -16,6 +27,8 @@
   }
   .navbar-toggler {
     border: 0;
+    outline: none !important;
+    box-shadow: none;
   }
   .navbar-nav {
     > li.nav-item {
@@ -38,7 +51,9 @@
       }
     }
   }
-  @media (min-width: 992px) {
+  
+
+  @media (min-width: $screen-lg-min) {
     border-color: transparent;
     background-color: transparent;
     @include transition-all;
@@ -149,8 +164,9 @@
 .header-menu-toggle {
   display: inline-block;
   position: absolute;
-  right: 29px;
-  top: 18px;
+  left: 8px;
+  top: 8px;
+  
   height: 42px;
   width: 42px;
   line-height: 42px;

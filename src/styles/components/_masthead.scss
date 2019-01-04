@@ -1,5 +1,9 @@
 // Styling for the masthead
 header.masthead {
+  width: 100%;
+  height: 100vh;
+  min-height: 786px;
+
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
   background-image: url("./assets/header.jpg");
@@ -76,7 +80,7 @@ header.masthead {
 
 @media only screen and (max-width: 800px) {
   .home-content__scroll {
-    right: 4rem;
+    right: 3rem;
     bottom: 3.5rem;
     .scroll-link {
       padding-right: 80px;
