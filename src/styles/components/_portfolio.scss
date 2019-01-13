@@ -1,4 +1,8 @@
 /*--------- Start Portfolio Area -------------*/
+.portfolio {
+  background-color: $colorBgroundGrayLight;
+}
+
 .portfolio-area {
   .primary-btn {
       color: $white;
@@ -25,7 +29,7 @@
   position: relative;
   text-transform: uppercase;
   color: $black;
-  font-size:12px;
+  font-size:14px;
   font-weight: $font-weight-regular;
   font-family: $font-family-montserrat;
   @media(max-width: 736px) {

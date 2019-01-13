@@ -10,11 +10,13 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <div class="section-header">
-            <h3 class="text-muted">Expore</h3>
-            <h2>our gallery</h2>
-            <hr class="section-heading-underline">
-          </div>
+            <div class="section-header-main">
+              <div class="section-header-dark">
+                <h3 class="section-heading-right">Explore</h3>
+                <h2 class="section-heading-right">Our gallery</h2>
+                <hr class="section-heading-underline">
+              </div>
+            </div>
         </div>
       </div>
       <div class="portfolio-area">
@@ -24,9 +26,9 @@
             <li
               v-for="item in items"
               v-bind:key="item.id"
-              :class="{active:item.id == selected}"
-              @click.prevent="selected = item.id"
-              v-on:click="filter(item.tag)"
+              :class="{active:item.id == selected}"           
+              @click="filter(item.tag)"
+              @click.prevent="selected = item.id"   
             >{{item.title}}</li>
           </ul>
         </div>

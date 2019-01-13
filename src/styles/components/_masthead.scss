@@ -3,65 +3,125 @@ header.masthead {
   width: 100%;
   height: 100vh;
   min-height: 786px;
-
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
   background-image: url("./assets/header.jpg");
   background-position: center center;
+
   @include background-cover;
-  hr {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  p {
-    font-weight: 300;
-  }
-  @media (min-width: 768px) {
-    p {
-      font-size: 1.15rem;
-    }
-  }
-  @media (min-width: 992px) {
-    height: 100vh;
-    min-height: 650px;
-    padding-top: 0;
-    padding-bottom: 0;
-    h1 {
-      font-size: 3rem;
-    }
-  }
-  @media (min-width: 1200px) {
-    h1 {
-      font-size: 4rem;
-    }
+
+  .top {
+    margin-top: auto;
   }
 }
 
+
+// header thin quote style
+header.masthead h2 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  font-family: $font-family-montserrat;
+  font-weight: $font-weight-thin;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 1.7rem;
+    letter-spacing: 0.4rem;
+  }
+
+  @media (min-width: $screen-md-min) {
+    font-size: 2.5rem;
+    letter-spacing: 0.4rem;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: 3.1rem;
+    letter-spacing: 0.5rem;
+  }
+}
+
+// header bold quote style
+header.masthead h1 {
+  text-transform: uppercase;
+  font-family: $font-family-raleway;
+  font-weight: $font-weight-bold;
+  font-size: 3rem;
+  span {
+    color: #b71c1c;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 4.5rem;
+  }
+
+  @media (min-width: $screen-md-min) {
+    font-size: 6rem;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: 7.4rem;
+  }
+}
+
+// header bold quote style
+header.masthead h6 {
+  text-transform: uppercase;
+  font-family: $font-family-montserrat;
+  font-weight: $font-weight-regular;
+  font-size: 1rem;
+
+}
+
+
+  
+  // icon
+  .header-quote-icon {
+    padding: 12px;
+    width: 200px;
+    height: auto;
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+    @media (min-width: $screen-sm-min) {
+      width: 100%;
+    }
+
+    @media (min-width: $screen-md-min) {
+      padding: 50px;
+      margin: 0;
+    }
+
+  }
+
 // content scroll
+.parent-row {
+  display: flex;
+  align-items: flex-end;
+}
+
+
 .home-content__scroll {
-  position: absolute;
-  right: 8rem;
-  bottom: 6rem;
-  -webkit-transform: rotate(-90deg) translate3d(100%, 50%, 0);
-  -ms-transform: rotate(-90deg) translate3d(100%, 50%, 0);
-  transform: rotate(-90deg) translate3d(100%, 50%, 0);
-  -webkit-transform-origin: right bottom;
-  -ms-transform-origin: right bottom;
-  transform-origin: right bottom;
+
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  transform-origin: left bottom;
+  margin-left: 20px;
+
   .scroll-link {
     text-decoration: none;
     font-family: $font-family-montserrat;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-regular;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.35rem;
     text-align: left;
     color: $colorTextPrimary;
     position: relative;
-    padding-right: 200px;
+    padding-right: 80%;
     &:hover {
       color: $accentColor;
     }
@@ -69,35 +129,48 @@ header.masthead {
   &::after {
     content: "";
     display: block;
-    background-color: rgba(255, 255, 255, 0.3);
-    width: 150px;
+    background-color: $white;
+    width: 70%;
     height: 1px;
     position: absolute;
     right: 0;
     top: 50%;
   }
+
+
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: $screen-lg-min) {
   .home-content__scroll {
-    right: 3rem;
-    bottom: 3.5rem;
     .scroll-link {
-      padding-right: 80px;
-    }
-    &::after {
-      width: 50px;
+      padding-right: 77%;
     }
   }
 }
 
-@media only screen and (max-width: 600px) {
+
+@media (max-width: $screen-md-min) {
   .home-content__scroll {
     .scroll-link {
-      font-size: 11px;
+      padding-right: 74%;
     }
+
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .home-content__scroll {
+    transform-origin: right bottom;
+    width: 100%;
+    text-align: right;
+    .scroll-link {
+      font-size: 11px;
+      padding-right: 0%;
+    }
+
     &::after {
       display: none;
     }
   }
 }
+

@@ -32,6 +32,7 @@
       <b-navbar-nav class="ml-auto">
         <b-nav-item href="#about" v-on:click="toggleNavbarToggler" v-scroll-to="'#about'">About</b-nav-item>
         <b-nav-item href="#services" v-on:click="toggleNavbarToggler" v-scroll-to="'#services'">Service</b-nav-item>
+        <b-nav-item href="#portfolio" v-on:click="toggleNavbarToggler" v-scroll-to="'#portfolio'">Gallery</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

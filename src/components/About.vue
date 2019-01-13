@@ -1,91 +1,139 @@
 <template>
   <!--*************** About section **************************-->
   <section class="about" id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
+    <b-container>
+      <div style="display:block; position:absolute">
+        <parallax :fixed="true">
+          <img class="img-fluid" src="../assets/bg_parrallax.jpg">
+        </parallax>
+      </div>
+
+      <b-row>
+        <b-col lg-12 class="text-center">
           <div class="section-header-main">
             <div class="section-header-dark">
               <h3 class="section-heading-right">Our story</h3>
+
               <h2 class="section-heading-right">Welcome</h2>
+
               <hr class="section-heading-underline">
             </div>
           </div>
+        </b-col>
+      </b-row>
 
-          <div class="row">
-            <div class="col-lg-12">
-              <ul class="timeline">
-                <!-- first sector -->
-                <li class="banana">
-                  <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="../assets/icons/ic_beer.svg" alt>
-                  </div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <h4>2009-2011</h4>
-                      <h4 class="subheading">Our Humble Beginnings</h4>
-                    </div>
-                    <div class="timeline-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                  </div>
-                </li>
-                <!-- second sector inverted -->
-                <li class="timeline-inverted">
-                  <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="../assets/icons/ic_beer.svg" alt>
-                  </div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <h4>March 2011</h4>
-                      <h4 class="subheading">An Agency is Born</h4>
-                    </div>
-                    <div class="timeline-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                  </div>
-                </li>
-                <!-- third sector -->
-                <li>
-                  <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="../assets/icons/ic_beer.svg" alt>
-                  </div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <h4>2009-2011</h4>
-                      <h4 class="subheading">Our Humble Beginnings</h4>
-                    </div>
-                    <div class="timeline-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                  </div>
-                </li>
-                <!-- fourth sector inverted -->
-                <li class="timeline-inverted">
-                  <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="../assets/icons/ic_beer.svg" alt>
-                  </div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <h4>March 2011</h4>
-                      <h4 class="subheading">An Agency is Born</h4>
-                    </div>
-                    <div class="timeline-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="timeline-inverted">
-                  <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="../assets/icons/ic_beer.svg" alt>
-                  </div>
-                </li>
-              </ul>
+      <b-row>
+        <b-col lg-12 no-gutters>
+          <Scrollama :offset="0.5" @step-enter="({ element }) => (currStep = element.dataset)">
+            <div class="graphic" slot="graphic">
+              <GradientCard></GradientCard>
+              {{currStep.stepTitle}}
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+            <b-card
+              v-for="(step) in steps"
+              v-bind:key="step.id"
+              :title="step.title"
+              :data-step-id="step.id"
+              :data-step-title="step.title"
+              :data-step-img-path="step.imgPath"
+              class="step"
+            >
+              <h1>{{step.title}}</h1>
+            </b-card>
+
+            <div class="step" data-step-no="4">step 4</div>
+          </Scrollama>
+        </b-col>
+      </b-row>
+    </b-container>
   </section>
   <!--*************** End About section **************************-->
 </template>
+
+<style src="vue-scrollama/dist/vue-scrollama.css"></style>
+
+<script>
+import "intersection-observer";
+import Scrollama from "vue-scrollama";
+import Parallax from "vue-parallaxy";
+
+export default {
+  name: "About",
+
+  data: function() {
+    return {
+      currStep: null,
+
+      steps: [
+        {
+          id: 1,
+          title: "First one",
+          imgPath: require("@/assets/1.jpg")
+        },
+        {
+          id: 2,
+          title: "Second one",
+          imgPath: require("@/assets/2.jpg")
+        },
+        {
+          id: 3,
+          title: "Third one",
+          imgPath: require("@/assets/3.jpg")
+        },
+        {
+          id: 4,
+          title: "Fourth one",
+          imgPath: require("@/assets/4.jpg")
+        }
+      ]
+    };
+  },
+
+  mounted() {
+    this.currStep = this.steps[0];
+    console.log("currStep " + this.currStep.title);
+  },
+
+  methods: {
+    stepEnterHandler({ element, index, direction }) {
+      // handle the step-event as required here
+      //console.log(element, index, direction)
+      console.log("id: " + element.dataset.stepId);
+      console.log("title: " + element.dataset.stepTitle);
+      console.log("imgpath: " + element.dataset.stepImgPath);
+    }
+  },
+
+  components: {
+    Scrollama,
+    Parallax
+  }
+};
+</script>
+
+
+<style>
+.graphic-img {
+
+  width: 100%;
+  transform-origin: 50% 50%;
+  cursor: pointer;
+  transform: scaleY(1) translateZ(0);
+  margin: 5px;
+
+}
+
+.flip-enter-active {
+  transition: all .2s cubic-bezier(0.55, 0.085, 0.68, 0.53); 
+}
+
+.flip-leave-active {
+  transition: all .25s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+}
+
+.flip-enter, .flip-leave-to {
+  transform: scaleY(0) translateZ(0);
+  opacity: 0;
+}
+</style>

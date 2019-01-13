@@ -10,13 +10,9 @@ body {
 }
 
 
-hr {
-  max-width: 50px;
-  border-width: 3px;
-  border-color: $primary;
-}
 
 hr.light {
+  border-width: 1px;
   border-color: $white;
 }
 
@@ -62,7 +58,7 @@ section {
       text-align: left;
       text-transform: uppercase;
       font-family: $font-family-raleway;
-      font-weight: $font-weight-light;
+      font-weight: $font-weight-regular;
       font-size: 16px;
       margin-bottom: 15px;
     }

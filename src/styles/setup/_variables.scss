@@ -13,10 +13,18 @@ $gray-900: #212529 !default;
 $black: #000 !default;
 
 // text Colors Dark Theme
-$colorBgroundDark: #212121 !default;
+$colorBgroundGrayDark: #212121 !default;
+$colorBgroundGrayLight: #424242 !default;
 $colorTextPrimary: #FFFFFF;
-$colorTextSecondary: #BDBDBD;
+$colorTextSecondary: #FAFAFA;
 $colorDivider: #EEEEEE;
 
 $primary: #b71c1c;
 $accentColor: #c62828;
+
+$nav-background-color: #212121;
+$nav-brand-color: $white;
+$nav-toggle-color: $white;
+
+// nav shrink colors
+$nav-li-color: $colorTextSecondary;

@@ -3,6 +3,8 @@
     <Navbar/>
     <Header/>
     <About/>
+    <Services/>
+    <PhotoGallery/>
   </div>
 </template>
 
@@ -13,6 +15,7 @@ import Header from './components/Header.vue'
 import About from './components/About.vue'
 import Services from './components/Services.vue'
 import PhotoGallery from './components/PhotoGallery.vue'
+import Test from './components/Test.vue'
 
 export default {
 
@@ -24,8 +27,11 @@ export default {
     Header,
     About,
     Services,
-    PhotoGallery
-  }
+    PhotoGallery,
+    Test
+  },
+
+  
 }
 </script>
 

@@ -1,6 +1,10 @@
 // about section
 .about {
-  background-color: $colorBgroundDark;
+  // background-color: $colorBgroundGrayLight;
+  .background {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 // Styling for the timeline section
@@ -57,10 +61,10 @@
       height: 80px;
       margin-left: 0;
       text-align: center;
-      color: $colorBgroundDark;
-      border: 7px solid $colorBgroundDark;
+      color: $colorBgroundGrayLight;
+      border: 7px solid $colorBgroundGrayLight;
       border-radius: 100%;
-      background-color: $colorBgroundDark;
+      background-color: $colorBgroundGrayLight;
       h4 {
         font-size: 10px;
         line-height: 14px;
@@ -179,6 +183,80 @@
       &.timeline-inverted > .timeline-panel {
         padding: 0 100px 20px 20px;
       }
+    }
+  }
+}
+
+//****************************************************************************************************************************
+// scrollama
+//****************************************************************************************************************************
+.intro,
+.outro {
+  padding: 20vh;
+}
+.graphic {
+  height: 100%;
+  width: 100%;
+  background-color: #eee;
+  font-size: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.step {
+  padding: 15vh 0;
+  width: 90%;
+  margin: 0 auto 30vh;
+  background-color: beige;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: $screen-md-min) {
+  .intro,
+  .outro {
+    padding: 20vh;
+  }
+
+  // additions and overrides of DOM elements vue-scrollama sets up
+  .scrollama-container {
+    display: flex;
+    .scrollama-graphic {
+      flex: 1;
+      height: 80vh;
+      top: 10vh;
+    }
+    .scrollama-steps {
+      flex: 1;
+    }
+  }
+
+  // your elements styles
+  .graphic {
+    width: 90%;
+    height: 100%;
+    margin: 0 3rem;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    font-size: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step {
+    padding: 20vh 0;
+    margin: 0 3rem;
+    margin-bottom: 10vh;
+    background-color: beige;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }

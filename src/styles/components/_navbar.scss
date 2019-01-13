@@ -9,7 +9,7 @@
 
   &.navbar-shrink {
     border-bottom: 1px solid fade-out($gray-900, 0.9);
-    background-color: $white;
+    background-color: $nav-background-color;
     margin: 0;
     transition: transform 500ms ease, background 500ms ease;
     -webkit-transition: transform 500ms ease, background 500ms ease;
@@ -18,11 +18,11 @@
   //@include transition-all;
   .navbar-brand {
     font-weight: $font-weight-light;
-    color: $primary;
+    color: $nav-brand-color;
     font-family: $font-family-kaushan;
     &:focus,
     &:hover {
-      color: darken($primary, 0.1);
+      color: darken($nav-brand-color, 0.1);
     }
   }
   .navbar-toggler {
@@ -37,7 +37,7 @@
         font-size: 0.9rem;
         font-weight: 700;
         text-transform: uppercase;
-        color: $gray-900;
+        color: $nav-li-color;
         &:hover {
           color: $primary;
         }
@@ -53,7 +53,7 @@
   }
   
 
-  @media (min-width: $screen-lg-min) {
+  @media (min-width: $screen-sm-min) {
     border-color: transparent;
     background-color: transparent;
     @include transition-all;
@@ -61,10 +61,10 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     .navbar-brand {
-      color: fade-out($white, 0.3);
+      color: fade-out($nav-brand-color, 0.3);
       &:focus,
       &:hover {
-        color: $white;
+        color: $nav-brand-color;
       }
     }
     .navbar-nav > li.nav-item > a.nav-link {
@@ -92,14 +92,14 @@
 
     .navbar-nav > li.nav-item > a.nav-link,
     .navbar-nav > li.nav-item > a.nav-link:focus {
-      color: fade-out($white, 0.3);
+      color: fade-out($white, 0.2);
       &:hover {
         color: $white;
       }
     }
     &.navbar-shrink {
       border-bottom: 1px solid fade-out($gray-900, 0.9);
-      background-color: $white;
+      background-color: $nav-background-color;
       margin: 0;
       top: -70px;
       transform: translateY(70px);
@@ -139,7 +139,7 @@
       }
       .navbar-nav > li.nav-item > a.nav-link,
       .navbar-nav > li.nav-item > a.nav-link:focus {
-        color: $gray-900;
+        color: $nav-li-color;
         
         &.active {
 
@@ -166,7 +166,6 @@
   position: absolute;
   left: 8px;
   top: 8px;
-  
   height: 42px;
   width: 42px;
   line-height: 42px;
@@ -174,7 +173,7 @@
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: .2rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: orange;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   &::before {
@@ -202,7 +201,7 @@
     top: 50%;
     right: auto;
     bottom: auto;
-    background-color: #c62828;
+    background-color: $nav-toggle-color;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     font: 0/0 a;
@@ -236,7 +235,7 @@
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   &::before, &::after {
-    background-color:  #c62828;
+    background-color:  $nav-toggle-color;
   }
   &::before {
     top: 0;
