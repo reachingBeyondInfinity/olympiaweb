@@ -8,6 +8,9 @@ import VueObserveVisibility from 'vue-observe-visibility'
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import KsVueScrollmagic from 'ks-vue-scrollmagic'
+
+import VueProgressiveImage from 'vue-progressive-image'
 
 require('vue2-animate/dist/vue2-animate.min.css')
 
@@ -17,6 +20,8 @@ Vue.use(BootstrapVue)
 Vue.use(VueScrollTo)
 Vue.use(Transitions)
 Vue.use(VueObserveVisibility)
+Vue.use(KsVueScrollmagic)
+Vue.use(VueProgressiveImage)
 
 new Vue({
   

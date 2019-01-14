@@ -31,6 +31,8 @@
     <b-collapse is-nav id="nav_collapse" ref="mNavCollapse">
       <b-navbar-nav class="ml-auto">
         <b-nav-item href="#about" v-on:click="toggleNavbarToggler" v-scroll-to="'#about'">About</b-nav-item>
+        <b-nav-item href="#about1" v-on:click="toggleNavbarToggler" v-scroll-to="'#about1'">About Scrollama</b-nav-item>
+        <b-nav-item href="#about2" v-on:click="toggleNavbarToggler" v-scroll-to="'#about2'">About Reg</b-nav-item>
         <b-nav-item href="#services" v-on:click="toggleNavbarToggler" v-scroll-to="'#services'">Service</b-nav-item>
         <b-nav-item href="#portfolio" v-on:click="toggleNavbarToggler" v-scroll-to="'#portfolio'">Gallery</b-nav-item>
       </b-navbar-nav>

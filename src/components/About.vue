@@ -1,6 +1,6 @@
 <template>
   <!--*************** About section **************************-->
-  <section class="about" id="about">
+  <section class="about" id="about1">
     <b-container>
       <div style="display:block; position:absolute">
         <parallax :fixed="true">
@@ -26,8 +26,7 @@
         <b-col lg-12 no-gutters>
           <Scrollama :offset="0.5" @step-enter="({ element }) => (currStep = element.dataset)">
             <div class="graphic" slot="graphic">
-              <GradientCard></GradientCard>
-              {{currStep.stepTitle}}
+              <h1>{{currStep.stepTitle}}</h1>
             </div>
 
             <b-card
