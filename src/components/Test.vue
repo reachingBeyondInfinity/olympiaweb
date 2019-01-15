@@ -3,7 +3,7 @@
   <div class="pinContainer" ref="pin" >
     <section v-for="(p, index) in panels" class="panel" :class="`panel-${index}`" >
 
-      <div class="masthead" :style="{ backgroundImage: 'url(' + p.imgPath + ')' }"> 
+      <div class="masthead1" :style="{ backgroundImage: 'url(' + p.imgPath + ')' }"> 
         
         <b-container>
         <b-row>

@@ -1,5 +1,5 @@
 // test
-.masthead {
+.masthead1 {
   width: 100%;
   height: 100vh;
   min-height: 786px;
@@ -13,6 +13,18 @@
   .top {
     margin-top: auto;
   }
+  // black overlay
+  &:before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:black;
+    opacity:0.6;
+    z-index:0;
+  }
 
   // header thin quote style
   h2 {
@@ -20,20 +32,20 @@
     font-size: 1rem;
     letter-spacing: 0.3rem;
     font-family: $font-family-montserrat;
-    font-weight: $font-weight-thin;
+    font-weight: $font-weight-light;
 
     @media (min-width: $screen-sm-min) {
-      font-size: 1.7rem;
+      font-size: 1.2rem;
       letter-spacing: 0.4rem;
     }
 
     @media (min-width: $screen-md-min) {
-      font-size: 2.5rem;
+      font-size: 2rem;
       letter-spacing: 0.4rem;
     }
 
     @media (min-width: $screen-lg-min) {
-      font-size: 3.1rem;
+      font-size: 2.5rem;
       letter-spacing: 0.5rem;
     }
   }
@@ -43,21 +55,21 @@
     text-transform: uppercase;
     font-family: $font-family-raleway;
     font-weight: $font-weight-bold;
-    font-size: 3rem;
+    font-size: 2rem;
     span {
       color: #b71c1c;
     }
 
     @media (min-width: $screen-sm-min) {
-      font-size: 4.5rem;
+      font-size: 3rem;
     }
 
     @media (min-width: $screen-md-min) {
-      font-size: 6rem;
+      font-size: 4.5rem;
     }
 
     @media (min-width: $screen-lg-min) {
-      font-size: 7.4rem;
+      font-size: 6rem;
     }
   }
 }
